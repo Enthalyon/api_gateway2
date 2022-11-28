@@ -41,5 +41,5 @@ def update_result(id_: str) -> dict:
 def delete_result(id_: str) -> dict:
     url = url_base + f'/delete/{id_}'
     response = requests.delete(url, headers=HEADERS)
-    return response.json()
+    return {"message": "processed"}, response.status_code
 

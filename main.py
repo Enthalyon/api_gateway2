@@ -58,7 +58,7 @@ def login() -> tuple:
         user_logged = response.json()
         del user_logged['rol']['permissions']
         expires = timedelta(days=1)
-        access_token = create_access_token (identity=user_logged, expires_delta=expires)
+        access_token = create_access_token(identity=user_logged, expires_delta=expires)
         return {"token": access_token, "user_id": user_logged.get('id')}, 200
     else:
         return {"message": "Access denied"}, 401
